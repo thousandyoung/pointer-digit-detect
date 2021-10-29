@@ -35,7 +35,8 @@ def get_text_box_position(l):
     for item in l:
         x_sum += item[0]
         y_sum += item[1]
-    return x_sum / 4, y_sum / 4
+    return int(x_sum / 4), int(y_sum / 4)
+
 
 
 if __name__ == '__main__':
@@ -45,4 +46,5 @@ if __name__ == '__main__':
     url = "http://127.0.0.1:8866/predict/chinese_ocr_db_crnn_mobile"
     r = requests.post(url=url, headers=headers, data=json.dumps(data))
     # 返回结果
+    print(get_0_1_position(r))
     get_0_1_position(r)
