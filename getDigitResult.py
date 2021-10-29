@@ -21,13 +21,16 @@ def getOcrResult(r):
 
 
 
-# 发送HTTP请求
-data = {'images': [cv2_to_base64(cv2.imread("5.jpg"))]}
-headers = {"Content-type": "application/json"}
-url = "http://127.0.0.1:8866/predict/chinese_ocr_db_crnn_mobile"
-r = requests.post(url=url, headers=headers, data=json.dumps(data))
+if __name__ == '__main__':
+    # 发送HTTP请求
+    data = {'images': [cv2_to_base64(cv2.imread("5.jpg"))]}
+    headers = {"Content-type": "application/json"}
+    url = "http://127.0.0.1:8866/predict/chinese_ocr_db_crnn_mobile"
+    r = requests.post(url=url, headers=headers, data=json.dumps(data))
+    # 打印预测结果
+    print(r.content)
+    print(r.json()["results"])
+    print(getOcrResult(r))
 
-# 打印预测结果
-print(r.content)
-print(r.json()["results"])
-print(getOcrResult(r))
+
+
