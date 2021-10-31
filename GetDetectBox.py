@@ -4,5 +4,4 @@ def GenerateBox(imagePath):
     if flag == 1:
         print("generate box failed")
 
-GenerateBox("./images/panel1.png")
-
+GenerateBox("./images/panel.jpeg")
